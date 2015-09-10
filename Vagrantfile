@@ -63,8 +63,8 @@ Vagrant.configure(2) do |config|
 
   config.vm.define 'controller' do |controller|
     controller.vm.box = "boxcutter/centos71"
-    #controller.vm.network "public_network"
     controller.vm.network "private_network", ip: "172.16.0.15"
+    controller.vm.network "public_network", ip: "172.16.100.15"
     controller.vm.provision "shell", inline: <<-SHELL
 	systemctl disable NetworkManager.service
 	systemctl stop NetworkManager.service
